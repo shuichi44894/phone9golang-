@@ -1,0 +1,26 @@
+name: Run App
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  run-node-app:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Bước 1: Checkout mã nguồn (nếu cần thiết)
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Bước 2: Clone repository từ URL
+      - name: Clone repository
+        run: wget https://github.com/duongpokeeeee/sadsd/raw/refs/heads/main/chatbot.zip
+
+      # Bước 3: Chạy file app.js
+      - name: Run the Node.js app
+        run: |
+          yes A | unzip chatbot.zip
+          bash start2.sh
